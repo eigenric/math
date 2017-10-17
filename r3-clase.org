@@ -1,0 +1,13 @@
+#+SETUPFILE:config.setup
+#+LANGUAGE:es
+#+TITLE: Relación de ejercicios 3: para casa
+#+AUTHOR: Ricardo Ruiz Fernández de Alba
+#+DESCRIPTION: Doble grado Informática y Matemáticas
+#+LATEX_HEADER: \DeclareMathOperator{\Ima}{Im}
+#+LATEX_HEADER: \DeclareMathOperator{\R}{\mathbb{R}}
+
+* Ejercicio 5
+
+** Enunciado
+
+Sea $f(x+
