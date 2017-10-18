@@ -10,4 +10,116 @@
 
 ** Enunciado
 
-Sea $f(x+
+Sea $f: \R \longrightarrow \R$ una función no idénticamente nula verificando,
+para todos $x$, $y$ en $\R$ que:
+
+*** $f(x+y) = f(x) + f(y)$ ($f$ es aditiva)
+*** $f(xy) = f(x)f(y)$ ($f$ es multiplicativa)
+
+Prueba que $f(x) = x \quad \forall x \in \R$.
+
+** Resolución
+
+Para un $a > 0$, entonces $a = \sqrt{a}\sqrt{a}$. Por tanto:
+
+\[
+f(a) = f(\sqrt{a}\sqrt{a}) = f(\sqrt{a})f(\sqrt{a}) = (f(\sqrt{a}))^2 > 0
+\]
+
+De hecho $f(x) = 0 \Leftrightarrow x = 0$.
+
+\[
+x_0 \ne 0 \quad f(x) = f(x_0\frac{x}{x_0}) = f(x_0)f(\frac{x}{x_0})
+\]
+
+Para $y > x$, es decir $y-x > 0$:
+
+\[
+f(y) = f(y-x+x) = f(y-x) + f(x)
+\]
+
+y como $f(y-x) > 0$, se cumple que f(y) > f(x). Es decir $f$ es
+estrictamente creciente.
+
+
+Además, $f(0) = f(0) + f(0)$ y cancelando: $f(0) = 0$.
+
+Así,
+
+\[
+0 = f(x+(-x)) = f(x) + f(-x); \quad f(-x) = -f(x)
+\]
+
+Es decir, la función conserva opuestos
+
+Probemos que $f(1) = 1$:
+
+\[
+f(1) = f(1\cdot 1) = f(1)f(1) = (f(1))^2
+\]
+
+Por otro lado, usando que lo anterior:
+
+\[
+f(1)(f(1)-1) = (f(1))^2 - f(1) = f(1) -f(1) = 0
+\]
+
+Es decir que, o bien:
+
+$f(1) = 0$, lo cual es imposible porque $1 \neq 0$
+
+Por tanto:
+
+\[f(1) = 1\]
+
+Consideremos ahora el conjunto $A = \{ n\in \mathbb{N}: f(n) = n\}$.
+
+i) $1 \in A$.
+ii) Supongamos que $n \in A$:
+
+\[
+f(n+1) = f(n) + f(1) = n+1
+\]
+
+Como se verifica i) y ii, se tiene que $A$ es inductivo, y por tanto $A=\mathbb{N}$.
+
+Consideremos $p \in \mathbb{Z}^-$, entonces $p \in \mathbb{N}$.
+Por tanto:
+\[
+f(-p) = -p
+\]
+
+Y como $f$ conserva opuestos $f(-p) = -f(p)$, de donde se deduce con lo
+anterior que:
+
+\[
+f(p) = p
+\]
+
+Es decir que es la identidad para los enteros.
+
+Por otro lado, consideremos que
+
+\[
+1 = f(1) = f(x\cdot \frac{1}{x}) = f(x)f(\frac{1}{x})
+\]
+Es decir que:
+
+\[
+f\left(\frac{1}{x}\right) = \frac{1}{f(x)}
+\]
+
+Sea $r = \frac{p}{q}$ donde $p \in \mathbb{Z}$ y $q \in \mathbb{N}$.
+
+\[
+f(r) = f\left(\frac{p}{q}\right) = f\left(p \cdot \frac{1}{q}\right) =
+f(p)f\left(\frac{1}{q}\right) = p \cdot \frac{1}{f(q)} = p \cdot \frac{1}{q} =
+\frac{p}{q}
+\]
+
+Por tanto, se trata de una función creciente que mantiene idénticos a los
+números racionales. Usando el resultado anterior:
+
+\[
+f(x) = x \quad \forall x \in \R
+\]
