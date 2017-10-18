@@ -1,11 +1,43 @@
 #+SETUPFILE:config.setup
 #+LANGUAGE:es
-#+STARTUP:latexpreview
 #+TITLE: Apuntes de Cálculo I
 #+LATEX_HEADER: \DeclareMathOperator{\Ima}{Im}
 #+LATEX_HEADER: \DeclareMathOperator{\R}{\mathbb{R}}
 
 * Capítulo 1
+
+** Pág 12. Principios del supremo y el ínfimo
+
+*** Principio del ínfimo
+
+Para todo conjunto de números reales no vacío y minorado se verifica que el conjunto
+de sus minorantes tiene máximo.
+
+*** Demostración.
+
+Sea $A$ un conjunto de números reales no vacío y minorado. Sea $B$ el conjunto de los
+minorantes de $A$. Por hipótesis, $A$ no es vacío. Para todos $a \in A$ y $b \in B$ se verifica
+que $a \geq b$. En virtud del axioma del continuo, existe $z \in
+\mathbb{R}$ verificando que $a \geq z \geq b$
+para todo $a \in A$ y todo $b \in
+B$. La desigualdad $a \geq z$ pora todo $a \in A$. nos dice
+que $z$ es un minorante de $A$, por lo que $z \in B$. La desigualdad $z \geq b$, nos dice ahora
+que $z$ es el máximo de B$, es decir que $z$ el máximo minorante de $A$.
+
+** Pág 18. Proposición 1.23
+
+*** Todo conjunto de números enteros no vacío y minorado tiene mínimo.
+
+Sea $E \subseteq \R$ no vacío y minorado. En virtud del principio del ínfimo hay un número
+$\alpha \in \R$ que es el máximo minorante de $E$. Puesto que $\alpha + 1 > \alpha$, $\alpha + 1$ no es un minorante
+de $A$, y por tanto existe un $z \in E$ tal que $\alpha + 1 > z$, y claro está que $\alpha \leq z$.
+
+Supongamos que $E \subseteq \mathbb{Z}$, y probemos que en tal caso $z = \alpha$. Si fuera $\alpha < z$, tendría que
+haber algún $w$ en $E$ tal que $z > w \ge \alpha$. Pero entonces como $\alpha > z -1$, se tiene
+que $w > z -1$ es decir que $z-w$ es un número positivo (ya que $z-w > 0$)
+tal que $z - w < 1$ lo cual es contradictorio.
+
+En consecuencia, $z = \alpha$, y $\alpha$ es el mínimo de $E$.
 
 ** Pág 27. Conjuntos infinitos y numerables 
 
@@ -18,55 +50,50 @@ segmento de orden n.
 
 #+begin_remark
 
-Como $1 \in \mathbb{N}$ y $1 \leq 1$, se tiene que $1 \in S(n) \forall n \in \mathbb{N}$. 
-Por tanto. $S(n) \neq \emptyset$, y $\min(S(n)) = 1$
+Como $1 \in \mathbb{N}$ y $1 \leq 1$, se tiene que $1 \in S(n) \forall n \in
+\mathbb{N}$.  Por tanto. $S(n) \neq \emptyset$, y $\min(S(n)) = 1$
 
 #+end_remark
 
 #+begin_definition
 
-Dados dos conjuntos $A$ y $B$, se dice que $A$ es
-equipotente con $B$ ($A \sim B$), cuando
-$\exists f: A \longrightarrow B$ siendo f una aplicación biyectiva.
+Dados dos conjuntos $A$ y $B$, se dice que $A$ es equipotente con $B$ ($A \sim B$),
+cuando $\exists f: A \longrightarrow B$ siendo f una aplicación biyectiva.
 
 #+end_definition
 
 #+begin_corollary
 
-       Cabe notar que esta aplicación biyectiva es una clase de
-    equivalencia, de manera que cumple las siguientes propiedades:
+       Cabe notar que esta aplicación biyectiva es una clase de equivalencia, de
+    manera que cumple las siguientes propiedades:
 
-i) Reflexividad: $A \sim A$
-ii) Simetría: Si $A \sim B$ \rightarrow $B \sim A$
-iii) Transitividad: Si $A \sim B$ y $B \sim C$ \rightarrow $A \sim C$
+i) Reflexividad: $A \sim A$ ii) Simetría: Si $A \sim B$ \rightarrow $B \sim A$ iii)
+Transitividad: Si $A \sim B$ y $B \sim C$ \rightarrow $A \sim C$
 
 #+end_corollary
 
 #+begin_definition
 
-Se dice que un conjunto $A$ es finito cuando, o bien
-$A = \emptyset$ o $\exists n \in \mathbb{N}: \quad A \sim S(N)$
+Se dice que un conjunto $A$ es finito cuando, o bien $A = \emptyset$ o $\exists n \in
+\mathbb{N}: \quad A \sim S(N)$
 
 #+end_definition
 
 #+begin_statement
 
-Sean $n, m \in \mathbb{N}$. Supongamos que $S(n) \sim S(m)$.
-Entonces $n = m$
+Sean $n, m \in \mathbb{N}$. Supongamos que $S(n) \sim S(m)$.  Entonces $n = m$
 
 #+end_statement
 
 #+begin_proof
 
-Por la observación 1.1, $S(n) \neq \emptyset \quad \forall n \in \mathbb{N}$
-Por tanto, sea $A$ un conjunto finito no vacío:
+Por la observación 1.1, $S(n) \neq \emptyset \quad \forall n \in \mathbb{N}$ Por
+tanto, sea $A$ un conjunto finito no vacío:
 
-\[
-\exists n: \quad A \sim S(n) \leftrightarrow \#A = n
-\]
+\[ \exists n: \quad A \sim S(n) \leftrightarrow \#A = n \]
 
-Como por hipótesis $A \sim B$, y por la propiedad simétrica
-$B \sim A$, se tiene por la propiedad transitiva que $B \sim S(n)$.
+Como por hipótesis $A \sim B$, y por la propiedad simétrica $B \sim A$, se tiene por
+la propiedad transitiva que $B \sim S(n)$.
 
 Así pues, es claro que $\#B=\#A=n$.
 
@@ -75,24 +102,23 @@ Para $A=S(n)$ y $B = S(m)$, $n=m$
 #+end_proof
 
 #+begin_statement
-Todo subconjunto de un conjunto finito es finito. Dicho de otra
-forma, si $B$ es un conjunto finito y $f:A \longrightarrow B$ es
-una aplicación inyectiva, entonces $A$ es finito.
+Todo subconjunto de un conjunto finito es finito. Dicho de otra forma, si $B$ es un
+conjunto finito y $f:A \longrightarrow B$ es una aplicación inyectiva, entonces $A$
+es finito.
 
 #+end_statement
 
 #+begin_proof
 
-Demostremos por inducción que si $A$ es finito con $n$ elementos
-y $f: B\longrightarrow A$ es inyectiva, entonces $B$ es finito.
-Dicho de otra forma, todo subconjunto de un conjunto finito es
-finito.
+Demostremos por inducción que si $A$ es finito con $n$ elementos y $f:
+B\longrightarrow A$ es inyectiva, entonces $B$ es finito.  Dicho de otra forma, todo
+subconjunto de un conjunto finito es finito.
 
 Para $n=\#A=1$:
 
-Como $A \sim S(n): \quad \exists g: S(n) \longrightarrow A$.
-Como $S(n)$ nunca es vacío, y $f$ es biyectiva, podemos
-tomar el primer y único elemento de $A$. $a = f(1)$.
+Como $A \sim S(n): \quad \exists g: S(n) \longrightarrow A$.  Como $S(n)$ nunca es
+vacío, y $f$ es biyectiva, podemos tomar el primer y único elemento de $A$. $a =
+f(1)$.
 
 Pueden darse dos casos:
 
@@ -101,83 +127,74 @@ Pueden darse dos casos:
 
 En ambos casos, $B$ es finito
 
-Suponemos cierto que $B$ es finito para cualquier $n=\#A$.
-Si añadimos un elemento a $A$ de manera que $\#A=n+1$, podemos
-tomar este elemento mediante una aplicación $g: S(n+1) \longrightarrow A$.
-$a = g(n+1)$. Cómo la aplicación inclusión sólo necesita
-ser inyectiva, o, en otras palabras si $B\subset A\setminus \{a\}$,
-entonces también $B\subset A$. Entonces $B$ es finito $\forall n \in \mathbb{N}$
+Suponemos cierto que $B$ es finito para cualquier $n=\#A$.  Si añadimos un elemento a
+$A$ de manera que $\#A=n+1$, podemos tomar este elemento mediante una aplicación $g:
+S(n+1) \longrightarrow A$.  $a = g(n+1)$. Cómo la aplicación inclusión sólo necesita
+ser inyectiva, o, en otras palabras si $B\subset A\setminus \{a\}$, entonces también
+$B\subset A$. Entonces $B$ es finito $\forall n \in \mathbb{N}$
 #+end_proof
    
 #+begin_statement
-Si $A$ es finito, y $f:A\longrightarrow C$, entonces $f(a)$
-es finito.
+Si $A$ es finito, y $f:A\longrightarrow C$, entonces $f(a)$ es finito.
 #+end_statement
 
 #+begin_proof
-Consideremos la aplicación $g:A\longrightarrow f(A)$.
-Como $\forall c \in f(A): g(a) = c$, se tiene que $\Ima g = f(A)$,
-o lo que es lo mismo, que $g$ es sobreyectiva.
+Consideremos la aplicación $g:A\longrightarrow f(A)$.  Como $\forall c \in f(A): g(a)
+= c$, se tiene que $\Ima g = f(A)$, o lo que es lo mismo, que $g$ es sobreyectiva.
 
-Por tanto, $\exists: h: f(A) \longrightarrow A$, donde $h$ es
-inyectiva. Como $A$ es finito por hipótesis y $h$ es inyectiva,
-por la proposición anterior: $f(A)$ es finito.
+Por tanto, $\exists: h: f(A) \longrightarrow A$, donde $h$ es inyectiva. Como $A$ es
+finito por hipótesis y $h$ es inyectiva, por la proposición anterior: $f(A)$ es
+finito.
 #+end_proof
 
 #+begin_statement
-Todo subconjunto finito no vacío de números reales tiene 
-máximo y mínimo.
+Todo subconjunto finito no vacío de números reales tiene máximo y mínimo.
 #+end_statement
 
 #+begin_proof
-Probemos por inducción sobre el número de elementos del
-subconjunto.
-Así pues, sea $A \subset \R$, $\#A = n$, $A$ tiene máximo y mínimo.
-Para $n=1$: Es obvio pues el único elemento de $A$ es a su vez
-máximo y mínimo.
+Probemos por inducción sobre el número de elementos del subconjunto.  Así pues, sea
+$A \subset \R$, $\#A = n$, $A$ tiene máximo y mínimo.  Para $n=1$: Es obvio pues el
+único elemento de $A$ es a su vez máximo y mínimo.
 
 Suponiéndolo cierto para $n$, queremos demostrarlo para $n+1$.
 
-Si $\#A = n+1$, entonces $\exists f: S(n+1) \longrightarrow A$.
-Por tanto, podemos tomar un elemento de $A$, $a = f(n+1)$.
-Restrigiendo $f$ a $S(n)$, $\exists g: S(n) \longrightarrow A \setminus \{a\}$.
-Por tanto, $A\setminus \{a\}$ es conjunto de $n$ elementos, y por tanto
-tiene máximo y mínimo.
+Si $\#A = n+1$, entonces $\exists f: S(n+1) \longrightarrow A$.  Por tanto, podemos
+tomar un elemento de $A$, $a = f(n+1)$.  Restrigiendo $f$ a $S(n)$, $\exists g: S(n)
+\longrightarrow A \setminus \{a\}$.  Por tanto, $A\setminus \{a\}$ es conjunto de $n$
+elementos, y por tanto tiene máximo y mínimo.
 
-Para hallar el máximo y el mínimo de $A$ sólo nos falta comparar 
-por tanto $a$ con el máximo y el mínimo de $A\setminus\{a\}$. Así pues, 
-sea $v=\max A\setminus \{a\}$ y $u=\min \{a\}$. En el caso de que $a>v$, 
-entonces $a=\max A$. En el caso contrario $a < v$, y $b=\max A$. 
-Por otro lado si $a<u$, entonces $a=\min A$, y el caso contrario,
-si $a>u$, entonces $u=\min A$.
+Para hallar el máximo y el mínimo de $A$ sólo nos falta comparar por tanto $a$ con el
+máximo y el mínimo de $A\setminus\{a\}$. Así pues, sea $v=\max A\setminus \{a\}$ y
+$u=\min \{a\}$. En el caso de que $a>v$, entonces $a=\max A$. En el caso contrario $a
+< v$, y $b=\max A$.  Por otro lado si $a<u$, entonces $a=\min A$, y el caso
+contrario, si $a>u$, entonces $u=\min A$.
 
 En todos los casos, $A$ tiene máximo y mínimo.
 #+end_proof
    
 #+begin_statement
 
-Sea $\varphi: \mathbb{N} \longrightarrow \R$, una aplicación tal que $\varphi(n) < \varphi(n+1) \quad \forall n \in \mathbb{N}$.
-Se verifica entonces que $\varphi$ es estrictamente creciente,
-es decir, si $n$, $m$ son números naturales tales que $n<m$,
+Sea $\varphi: \mathbb{N} \longrightarrow \R$, una aplicación tal que $\varphi(n) <
+\varphi(n+1) \quad \forall n \in \mathbb{N}$.  Se verifica entonces que $\varphi$ es
+estrictamente creciente, es decir, si $n$, $m$ son números naturales tales que $n<m$,
 entonces $\varphi(n)<\varphi(m)$. En particular, $\varphi$ es inyectiva.
 
-Si además se supone que $\varphi$ toma valores en $\mathbb{N}$,
-esto es, $\varphi(\mathbb{N}) \subseteq \mathbb{N}$, entonces:
+Si además se supone que $\varphi$ toma valores en $\mathbb{N}$, esto es,
+$\varphi(\mathbb{N}) \subseteq \mathbb{N}$, entonces:
 
-i) $\varphi(n) \geq n \quad \forall n \in \mathbb{N}$.
-ii) Si $\varphi(\mathbb{N}) = \mathbb{N}$, $\varphi$ es la identidad, 
-es decir,  $\varphi(n) = n \quad \forall n \in \mathbb{N}$
+i) $\varphi(n) \geq n \quad \forall n \in \mathbb{N}$.  ii) Si $\varphi(\mathbb{N}) =
+\mathbb{N}$, $\varphi$ es la identidad, es decir, $\varphi(n) = n \quad \forall n \in
+\mathbb{N}$
 
 #+end_statement
 
 #+begin_proof
-Para probar la primera afirmación del enunciado fijemos
-$n \in \mathbb{N}$ y probemos por inducción que
-$\varphi(n) < \varphi(n+k)$ para todo $k \in \mathbb{N}$.
-Para $k=1$ no hay nada que probar. Supuesto $\varphi(n) < \varphi(n+k)$
-entonces, puesto que $\varphi(n+k) < \varphi(n+k+1)$, se sigue
-que $\varphi(n) < \varphi(n+k+1)$. Ahora, si $m \in \mathbb{N}$,
-$n < m$, tenemos que $k = m - n \in \mathbb{N}$
-y $\varphi(n) < \varphi(n+k) = \varphi(m)$.
+Para probar la primera afirmación del enunciado fijemos $n \in \mathbb{N}$ y probemos
+por inducción que $\varphi(n) < \varphi(n+k)$ para todo $k \in \mathbb{N}$.  Para
+$k=1$ no hay nada que probar. Supuesto $\varphi(n) < \varphi(n+k)$ entonces, puesto
+que $\varphi(n+k) < \varphi(n+k+1)$, se sigue que $\varphi(n) <
+\varphi(n+k+1)$. Ahora, si $m \in \mathbb{N}$, $n < m$, tenemos que $k = m - n \in
+\mathbb{N}$ y $\varphi(n) < \varphi(n+k) = \varphi(m)$.
 #+end_proof
+
 
