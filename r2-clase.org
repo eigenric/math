@@ -1,0 +1,59 @@
+#+SETUPFILE:config.setup
+#+LANGUAGE:es
+#+TITLE: Relación de ejercicios 2: para clase
+#+AUTHOR: Ricardo Ruiz Fernández de Alba
+#+DESCRIPTION: Doble grado Informática y Matemáticas
+#+LATEX_HEADER: \DeclareMathOperator{\Ima}{Im}
+#+LATEX_HEADER: \DeclareMathOperator{\R}{\mathbb{R}}
+#+LATEX_HEADER: \DeclareMathOperator{\N}{\mathbb{N}}
+
+* Ejercicio 6
+
+** Enunciado
+
+Considerando los conjuntos
+
+\[A = \left\{2-\frac{1}{n}: n \in \N \right\}\]
+
+\[B = \left\{3+\frac{1}{n}: n \in \N \right\}\]
+
+\[A = \left\{\left(2-\frac{1}{n}\right)\left(3+\frac{1}{n}\right): n \in \N \right\}\]
+
+Calcula el supremo y el ínfimo de $A$, $B$, $C$, es indica
+cuáles de ellos tienen máximo o mínimo.
+Comprueba si se verifican las igualdades
+
+\[
+\sup(C) = \sup(A)\sup(B) \quad \inf(C) = \inf(A)\inf(B)
+\]
+
+¿Hay alguna contradicción con lo establecido en el ejercicio 2?
+
+** Resolución
+
+$\min(A) = 1$ ya que $1 \in A$. y $1 \le 2 - \frac{1}{n}$ porque $\frac{1}{n} \le 1$.
+
+Por otro lado, parece obvio que $2$ es mayorante de $A$. Por
+tanto, $A$ está mayorado, y, por el principio del supremo
+sea $\alpha = \sup(A)$.
+Es decir que
+
+\[
+\exists x_varepsilon \quad \alpha - \varepsilon < x_varepsilon
+\]
+
+\[
+\alpha - x_varepsilon < 2 - \frac{1}{n_varepsilon}
+\]
+
+\[
+2 - \varepsilon < 2 - \fra{1}{n}
+\]
+
+Y se llega a que
+
+\[
+n > \frac{1}{\varepsilon}
+\]
+Lo cual es cierto por la propiedad arquimediana, ya que 
+
