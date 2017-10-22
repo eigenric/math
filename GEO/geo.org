@@ -1,0 +1,45 @@
+* Geometría 1
+
+** 09-10-2017
+
+*** Ejemplos concretos de subespacios vectoriales
+
+**** Ejemplo 2.12 (Polinomios de grado menor o igual que n).
+
+\[
+p:\mathbb{R} \rightarrow \mathbb{R}
+\]
+
+existen escalares $a_0,a_1, \dots, a_n \in \mathbb{R}$
+
+tal que
+
+\[p(x) = a_0 + a_1x + \dots + a_nx^n \quad \forall x \in \mathbb{R}\]
+
+Si $p_1, p_2$ son polinomios, entonces $p_1+p_2$ es un polinomio.
+
+Como indica en la página 30,
+
+
+\begin{align*}
+K_n[x] = \left\{p(x) \in K[x]: grado(p(x)) \leq n\right\} = \\
+=  \left\{a_0+a_1x+\dots + a_nx_n: a_i \in K, \forall i = 0, \dots, n\right\}
+\end{align*}
+
+**** Observación 2.14 (página 25)
+
+$\mathbb{C}$ admite una estructura de espacio vectorial sobre $\mathbb{C}$
+Lo denotamos $\mathbb{C}(\mathbb{C})$, pero también admite una estructura de e.v
+denotada por $\mathbb{C}(\mathbb{R})$
+
+
+
+**** Ejemplo 2.27 en SEL y matrices simétricas/antisimétricas
+     
+Sea $U$ el subconjunto de $K^n$ formado por todas las solcuiones del SEL.
+U es un s.v de $K^n \Leftrightarrow b_1 = \dots = b_m = 0$
+
+
+
+
+
