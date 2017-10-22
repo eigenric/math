@@ -95,7 +95,7 @@ En particular, si $A=B$:
 \]
 
 ** ii) $\sup(A\cup B) = \max\{\sup(A), \sup(B)\}$
-
+*** Demostración propia
 Sean
 
 \[C=\{x: x \in A \lor x \in B\}\]
@@ -121,7 +121,7 @@ de $A$ y $B$ respectivamente, se tiene que
 
 Distingamos dos casos:
 
-*** Si $\alpha \geq \beta$, entonces $\alpha = \max\{\alpha,\beta\}$
+**** Si $\alpha \geq \beta$, entonces $\alpha = \max\{\alpha,\beta\}$
 
 Como $\alpha \geq \beta \geq b \quad \forall b \in B$, y además $\alpha \geq a \quad \forall a \in A$,
 se tiene que
@@ -134,7 +134,7 @@ Y por tanto $\alpha = \gamma$, es decir
 \sup(C) = \sup(A)
 \]
 
-*** Si $\beta \geq \alpha$, entonces $\beta = \max\{\alpha,\beta\}$
+**** Si $\beta \geq \alpha$, entonces $\beta = \max\{\alpha,\beta\}$
 
 Como $\beta \geq \alpha \geq a \quad \forall a \in A$, y además  $\beta \geq b \quad \forall b \in B$,
 se tiene que
@@ -154,6 +154,35 @@ Así pues, concluimos que
 \]
 
 Como se quería demostrar.
+
+*** Demostración alternativa
+
+Sea $\beta_0 = \max\{\sup(E_1), \sup(E_2)\}$. Tenemos que demostrar
+que $\beta_0 = \sup(E_1 \cup E_2)$, es decir que $\beta_0$ es el mínimo
+mayorante de $E_1 \cup E_2$.
+
+1) Supongamos $x \in E_1 \cup E_2$, entonces $x \in E_i$ para algún $i \in \{1,2\}$,
+y se verifica que:
+
+\[ x \leq \sup(E_i) \leq \max\{\sup(E_1), \sup(E_2)\} = \beta_0 \]
+
+Lo que muestra que $\beta_0$ es un mayorante de $E_1 \cup E_2$.
+
+2) Sea $\beta$ un mayorante de $E_1 \cup E_2$, entonces, se verifica
+que $\beta \geq \sup(E_1)$ y que $\beta \geq \sup(E_1)$. Es decir que
+
+\[
+\beta \geq \max\{\sup(E_1), \sup(E_2)\} = \beta_0
+\]
+
+Por tanto
+
+\[
+\beta_0 = \sup(E_1 \cup E_2)
+\]
+
+Como queríamos demostrar
+
 
 * Ejercicio 7
 
