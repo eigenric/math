@@ -1,0 +1,83 @@
+#+SETUPFILE:../config.setup
+#+LANGUAGE:es
+#+TITLE: Relación de ejercicios Aplicaciones lineales
+#+AUTHOR: Ricardo Ruiz Fernández de Alba
+#+DESCRIPTION: Doble grado Informática y Matemáticas
+#+LATEX_HEADER: \DeclareMathOperator{\Ima}{Im}
+#+LATEX_HEADER: \DeclareMathOperator{\R}{\mathbb{R}}
+
+* Ejercicio 1
+
+Para comprobar que $G(f)$ es s.v., necesitamos ver que
+
+\[
+a(v, f(v)) + b(w, f(w)) \in G(f) \quad \forall v, w \in V \quad \forall a, b \in K
+\]
+
+Ahora bien, esto es
+
+\[(av+bw, af(v)+bf(w))\]
+
+Lo cual pertenecerá al grafo si
+
+\[
+f(av+bw) = af(v)+bf(w)
+\]
+
+Y esto se cumplirá si y sólo si $f$ es lineal.
+
+Por tanto, hemos demostrado que $G(f)$ es s.v sii $f$ es lineal
+
+
+Para el cálculo de la dimensión, consideramos la aplicación
+
+\begin{align*}
+F: V \rightarrow G(f) \\
+   v \longrightarrow (v, f(v))
+\end{align*}
+
+Si probamos que es un isomorfismo, es decir, una aplicación lineal biyectiva, se
+verificará por el teorema del rango que
+
+\[
+\dim_k V = \dim_k \Ima{f} + dim_{k} Nuc{f} = \dim_{k} G(f)
+\]
+
+Ya que si es biyectiva:
+
+- Por sobreyectividad: $\Ima f = G(f)$
+- Por inyectividad: $\dim_k Nuc f = 0$
+
+Para probar esto, primero probamos que $F$ es aplicación lineal:
+
+\begin{align*}
+F(av+bw) = (av+bw, f(av+bw)) \\
+= (av +bw, af(v)+bf(w)) \quad \text{Por linealidad de f} \\ 
+= (av, af(v)) + (bw, bf(w) \\
+= a(v,f(v)) + b(w, f(w)) \\
+= aF(v) + bF(w)
+\end{align*}
+
+Probemos ahora que $F$ es biyectiva
+
+- Inyectividad de $F$:
+
+  Si $v \neq w \Rightarrow F(v) = (v, f(v)) \neq (w, f(w)) = F(w)$
+  Es decir que
+  \[
+  F(v) \neq F(w)
+  \]
+
+- Sobreyectividad de $F$:
+
+Sea $(v, f(v)) \in G(f)$, entonces
+
+\[
+(v, f(v)) = F(v) \quad \forall v \in V
+\]
+
+Por tanto
+
+\[
+\dim_{k} G(f) = dim_{k} V
+\]
