@@ -40,7 +40,7 @@ Si probamos que es un isomorfismo, es decir, una aplicación lineal biyectiva, s
 verificará por el teorema del rango que
 
 \[
-\dim_k V = \dim_k \Ima{f} + dim_{k} Nuc{f} = \dim_{k} G(f)
+\dim_k V = \dim_k \Ima{f} + \dim_{k} Nuc{f} = \dim_{k} G(f)
 \]
 
 Ya que si es biyectiva:
