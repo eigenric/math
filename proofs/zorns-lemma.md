@@ -50,3 +50,16 @@ Los conjuntos f-inductivos cumplen el siguiente **lema de comparación**.
 **Dem**.
 
 Como $A \neq B$ podemos asumir sin pérdida de generalidad que $A \setminus B \neq \emptyset$.
+
+Sea $x = \min(A \setminus B)$, probaremos que $B$ es segmento inicial de $x$ en $A$
+
+$$I_A(x) = B$$
+
+
+$\boxed{\subset}\;\;$
+
+Sea $y \in I_A(x)$ entonces $y \in A$ tal que $y \lt x$. Como $x = \min(A \setminus B)$. Si $y \notin B$ entonces $y \in A \setminus B$ siendo menor que el mínimo. Luego $y \in B$
+
+
+$\boxed{\supset}\;\;$
+
