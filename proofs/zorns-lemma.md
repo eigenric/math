@@ -63,3 +63,40 @@ Sea $y \in I_A(x)$ entonces $y \in A$ tal que $y \lt x$. Como $x = \min(A \setmi
 
 $\boxed{\supset}\;\;$
 
+Supongamos $B \setminus I_A(x) \neq \emptyset$ y lleguemos a contradicción.
+
+Sea $y = \min(B \setminus I_A(x))$.
+Sea $z = \min(A \setminus I_B(y))$.
+
+> **Lema de Cierre.** Dado cualquier $u \in I_B(y)$, si $v \in A$ y $v \lt u$ entonces:
+
+> - $v \lt y$  (por def. de $I_B(y)$)
+> - $v \in B$ 
+
+> Luego $v \in I_B(y)$
+
+**Dem**.
+Basta ver por qué $v \in B$.
+Como $u \in I_B(y)$, $u \in B$ y $u \lt y$. 
+Por def. $y = \min(B \setminus I_A(x))$, luego si $u \notin I_A(x)$, entonces $u \in B \setminus I_A(x)$  siendo menor que el mínimo.
+Por tanto $u \in I_A(x)$
+Como $v \in A$ tal que $v \lt u$, es claro que $v \in I_A(x) \subset B$. $\square$
+
+Con este resultado podemos probar que
+$$
+I_A(z) = I_B(y)
+$$
+
+- $I_A(z) \subset I_B(y)$
+
+Sea $u \in I_A(z)$, entonces $u \in A$ tal que $u \lt z$.
+Como $z = \min(A \setminus I_B(y))$, si $u \notin I_B(y)$ entonces $u \in A \setminus I_B(y)$ siendo menor que el mínimo.
+Por tanto $u \in I_B(y)$
+
+
+- $I_A(z) \supset I_B(y)$
+
+Sea $u \in I_B(y)$ entonces $u \in I_A(x)$ (por def. de $y$), luego $u \in A$ y podemos compararlo con $z$.
+Es claro que $u \neq z$ por def de $z$.
+Además si $z \lt u$, por el *Lema de Cierre*, se tendría que $z \in I_B(y)$ contradiciendo la def. de $z$.
+Por tanto $u \lt z$. Como $u \in A$, se sigue que $u \in I_A(z)$.
