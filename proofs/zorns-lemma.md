@@ -12,7 +12,9 @@ En lo siguiente $(X, \leq)$ es un conjunto parcialmente ordenado o poset.
 
 > **Def.** Se dice que $C \subset X$ es una **cadena de $X$** cuando $(C, \leq)$ es totalmente ordenado.
 
-> **Def.**: 
+> **Def.**: Se dice que $(A, \leq)$ es un conjunto **bien ordenado** cuando todo subconjunto suyo no vacío tiene mínimo. 
+La clase de subconjuntos de $X$ bien ordenados se denota 
+$$Well(X)$$
 
 > **Def.** Sea $S \subset X$. Se dice que $m \in S$ es un **elemento maximal** cuando no hay elemento de $S$ (estrictamente) mayor.
 
@@ -32,8 +34,19 @@ Supongamos que $(X, \leq)$ no tiene elemento maximal y lleguemos a contradicció
 
 Utilizando el Axioma de Elección, existe una función $f$ que asigna a cadena $C \subset X$ bien ordenada una cota superior estricta $f(C)$.
 
-La contradicción buscada consistirá en encontrar una $U \$ tal que $f(U) \in U$.
+La contradicción buscada consistirá en encontrar una cadena $U \subset X$ tal que $f(U) \in U$.
 
 Para ello, definimos la noción de conjunto $f$-inductivo.
 
-> **Def.** $W \in Well(S)$.
+> **Def.** $A \in Well(S)$ es **f-inductivo** si para todo $x \in A$
+$$
+x = f(I_A(x))
+$$
+
+Los conjuntos f-inductivos cumplen el siguiente **lema de comparación**.
+
+> **Lema:** Si $A, B \subset X$ son f-inductivos y $A \neq B$, entonces uno de los dos es segmento inicial del otro.
+
+**Dem**.
+
+Como $A \neq B$ podemos asumir sin pérdida de generalidad que $A \setminus B \neq \emptyset$.
