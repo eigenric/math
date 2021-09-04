@@ -1,6 +1,19 @@
 # Teoría de Conjuntos
 
+> **Prop.** $A \setminus B = \emptyset \Leftrightarrow A \subseteq B$
+
+**Dem**
+
+$\boxed{\Rightarrow}$
+
+Si $x \in A$. Si $x \notin B$ entonces $x \in A \setminus B$ imposible por ser vacío. Luego $x \in B$.
+
+$\boxed{\Leftarrow}$
+No hay $x \in A$ tal que $x \notin B$
+
+
 > **Prop.** $A \setminus B \neq \emptyset \Leftrightarrow A \nsubseteq B$
+
 
 **Dem**
 $A \nsubseteq B$ es equivalente a que exista $x \in A$ tal que $x \notin B$.
