@@ -1,0 +1,528 @@
+\documentclass[
+  a4paper,
+  spanish,
+  12pt,
+]{scrartcl}
+
+\linespread{1.05}
+%\setlength{\parindent}{18pt}
+
+
+%-------------------------------------------------------------------------------
+%	PAQUETES
+%-------------------------------------------------------------------------------
+
+% Idioma
+
+\usepackage[es-noindentfirst, es-tabla]{babel}
+
+% Matemáticas
+
+\usepackage{config}
+% \usepackage{amsmath, amsthm, amssymb}
+% \usepackage{mathtools}
+% \usepackage{commath}
+% \usepackage{xfrac}
+
+
+% Fuentes personalizadas para utilizar con XeLaTeX o LuaLaTeX
+
+\usepackage[no-math]{fontspec}
+\setmainfont[WordSpace=1.3, RawFeature={+ss06}]{EBGaramond}
+\setsansfont[Scale=0.9]{Alegreya Sans}
+\setmonofont[Scale=0.75]{Vera Mono}
+
+\usepackage[math-style=TeX]{unicode-math}
+\setmathfont{Garamond Math}[StylisticSet={3}]
+
+
+% Configuración de microtype
+
+\defaultfontfeatures{Ligatures=TeX,Numbers=Lining}
+\usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
+\SetTracking{encoding={*}, shape=sc}{0}
+
+% Enlaces y colores
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+  colorlinks=true,
+  citecolor=,
+  linkcolor=,
+  urlcolor=blue,
+}
+
+% Otros elementos de página
+
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=-\itemindent, itemsep=0pt}
+\setlist[itemize]{leftmargin=-\itemindent, itemsep=0pt}
+%\setlist[itemize]{leftmargin=*}
+%\setlist[enumerate]{leftmargin=*}
+
+\usepackage[labelfont={sc, sf}, textfont=sf]{caption}
+
+\usepackage{booktabs}
+\renewcommand\arraystretch{1.5}
+
+% Tikz
+
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage{float}
+
+% Código
+
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily,%
+	breaklines=true,%
+	captionpos=b,                    % sets the caption-position to bottom
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  frame=lines,
+  numbers=left,
+  stepnumber=1,
+  aboveskip=12pt,
+  showstringspaces=false,
+  keywordstyle=\bfseries,
+  commentstyle=\itshape,
+  columns=flexible,
+}
+\renewcommand{\lstlistingname}{Listado}
+
+% ENTORNOS
+
+\usepackage[theorems, skins, breakable]{tcolorbox}
+
+\tcolorboxenvironment{nth}{
+	blanker,
+	breakable,
+	left=12pt,
+	before skip=12pt,
+	after skip=12pt,
+	borderline west={2pt}{0pt}{500},
+	before upper={\parindent 12pt},
+}
+
+\tcolorboxenvironment{nprop}{
+	blanker,
+	breakable,
+	left=12pt,
+	before skip=12pt,
+	after skip=12pt,
+	borderline west={2pt}{0pt}{42},
+	before upper={\parindent 12pt},
+}
+
+\tcolorboxenvironment{ncor}{
+	blanker,
+	breakable,
+	left=12pt,
+	before skip=12pt,
+	after skip=12pt,
+	borderline west={2pt}{0pt}{300},
+	before upper={\parindent 12pt},
+}
+
+\tcolorboxenvironment{ndef}{
+	skin=enhancedmiddle jigsaw,
+	frame hidden,
+	colback= 36,
+	breakable = true,
+	break at = -6pt,
+	top = 4pt,       % Estos márgenes están un poco a ojo
+	bottom = 4pt,
+	left= 8pt,
+	right = 8pt,
+	before skip=8pt, % Normalmente dejamos 12pt, pero
+	after skip=8pt,  % aquí tenemos espacio adicional por el fondo
+	no borderline,
+	borderline west={2pt}{0pt}{42},
+	before upper={\parindent 12pt},
+}
+
+\tcolorboxenvironment{ejer}{
+	skin=enhancedmiddle jigsaw,
+	frame hidden,
+	colback=50,
+	breakable = true,
+	break at = -6pt,
+	top = 4pt,       % Estos márgenes están un poco a ojo
+	bottom = 4pt,
+	left= 8pt,
+	right = 8pt,
+	before skip=8pt, % Normalmente dejamos 12pt, pero
+	after skip=8pt,  % aquí tenemos espacio adicional por el fondo
+	no borderline,
+	borderline west={2pt}{0pt}{500},
+	borderline east={2pt}{0pt}{50},
+	before upper={\parindent 12pt},
+}
+
+
+% Márgenes
+\usepackage[bottom=3.125cm, top=2.5cm, left=3.5cm, right=3.5cm, marginparwidth=70pt]{geometry}
+
+%dealing with (sub/subsub)sections
+%\let\raggedsection\centering%Center all sectioningheads
+%all levels have something in common, let's save typing:
+\RedeclareSectionCommands[beforeskip=-3ex,
+afterskip=2ex]{section,subsection,subsubsection}
+\addtokomafont{section}{\normalfont\large\textsc}
+\RedeclareSectionCommand[beforeskip=-6ex]{section}
+\addtokomafont{subsection}{\normalfont\itshape}
+
+%-------------------------------------------------------------------------------
+%	CONTENIDO
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{flushright}
+  Ricardo Ruiz Fernández de Alba\vspace{.5em}
+
+  \textit{Probabilidad}
+
+  Doble Grado en Ingeniería Informática y Matemáticas
+
+  \textsc{Universidad de Granada}\vspace{.5em}
+
+  \today\vspace{.5em}
+\end{flushright}
+
+\begin{flushleft}
+  \scshape\Large Actividad Evaluable 1.
+\end{flushleft}
+
+\section{Función de Probabilidad}
+
+Se denota por $(\Omega, \mathcal{A},P)$ el espacio probabilístico base. Se considera la siguiente definición de medida de probabilidad:
+
+\begin{ndef}
+   $P : \mathcal{A} \rightarrow[0,1]$ es una función de probabilidad si satisface los siguientes tres axiomas:
+
+\emph{A1.} $P(A) \geq 0, \quad \forall A \in \mathcal{A}$
+
+\emph{A2.} $P(\Omega) = 1$
+
+\emph{A3.} Para cualquier secuencia $\{A_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}$ de sucesos disjuntos
+$$
+P\left(\bigcup_{n\in \mathbb{N}}A_n\right) = \sum_{n \in \mathbb{N}} P(A_n)
+$$
+\end{ndef}
+
+
+\section{Propiedades}
+
+Demostrar, a partir de la definición anterior, las siguientes propiedades
+
+\begin{nprop}
+    $P(\emptyset) = 0$
+\end{nprop}
+
+\begin{proof}
+
+Basta considerar la secuencia de sucesos imposibles $\{ A_n \}_{n \in \mathbb{N}}$ con $A_n = \emptyset \quad \forall n \in \mathbb{N}$. Es claro que son disjuntos, luego usando \emph{A3}
+
+$$
+P\left(\bigcup_{n \in \mathbb{N}} \emptyset \right) = \sum_{n \in \mathbb{N}} P(\emptyset)
+$$
+
+Observamos que \emph{A1} garantiza la convergencia de la serie $\sum_{n \in \mathbb{N}} P(\emptyset)$ lo cual, de nuevo por \emph{A1} se da si y sólo si $P(\emptyset) = 0$.
+
+\end{proof}
+
+\begin{nota}
+Asumiendo aditividad finita la prueba se deduce con mayor facilidad:
+$$
+P(\emptyset) = P(\emptyset \cup \emptyset) = P(\emptyset)+ P(\emptyset) 
+$$
+\end{nota}
+
+\begin{nprop}
+Aditividad finita para sucesos disjuntos.
+
+Sean $A_1, A_2, \dots, A_N \in \mathcal{A}$ un número finito de sucesos disjuntos, entonces
+$$
+P\left(\bigcup_{n=1}^N A_n \right) = \sum_{n=1}^N P(A_n)
+$$
+\end{nprop}
+
+\begin{proof}
+
+Basta considerar la secuencia extendida $\{A_n\}_{n \in \mathbb{N}}$ tal que 
+$A_n = \emptyset \quad \forall n > N$ 
+
+Aplicando \emph{A3} (aditividad contable).
+$$
+P\left(\bigcup_{n \in \mathbb{N}} A_n \right) = \sum_{n \in \mathbb{N}} P(A_n)
+$$
+
+Que en este caso, es equivalente a 
+
+$$
+P\left(\bigcup_{n=1}^N A_n\right) = \sum_{n=1}^N P(A_n) + \sum_{n=N+1}^\infty P(\emptyset) =  \sum_{n \in \mathbb{N}}^N P(A_n)
+$$
+
+utilizando que $P(\emptyset) = 0.$ 
+
+\end{proof}
+
+\begin{nprop}
+ Probabilidad del suceso complementario. Para cada suceso $A \in \mathcal{A}$
+$$
+P(A^c) = 1 - P(A)
+$$
+\end{nprop}
+
+\begin{proof}
+Aplicando la aditividad finita para $A$ y su complementario $A^c$, que son disjuntos, se tiene:
+
+$$
+1 = P(\Omega) = P(A \cup A^c) = P(A) + P(A^c)
+$$
+Donde se ha utilizado \emph{A2}. Luego,
+
+$$
+P(A^c) = 1 - P(A)
+$$
+
+\end{proof}
+
+\begin{nota}
+Sin considerar la aditividad finita es necesario extender la secuencia con vacíos. Por eso, se ha alterado el orden del enunciado.
+\end{nota}
+
+\begin{nprop}
+     Probabilidad de la diferencia y monotonía. Sea $B \subseteq A \in \mathcal{A}$, entonces
+$$
+P(A-B) = P(A)-P(B)
+$$ 
+y $P(B) \leq P(A)$
+\end{nprop}
+
+\begin{proof}
+Consideramos los sucesos disjuntos $B$ y $A-B$, cuya unión es $A$ y aplicamos aditividad finita
+
+$$
+P(A) = P(B \cup (A-B)) = P(B) + P(A-B)
+$$
+
+Como $P(A-B) \geq 0$ por \emph{A1}, deducimos $P(B) \leq P(A)$. 
+Y despejando,
+
+$$
+P(A-B) = P(A) - P(B)
+$$
+
+\end{proof}
+
+\begin{nota}
+    Como caso particular se obtiene la probabilidad del complementario.
+$$
+P(B^c) = P(\Omega - B) = P(\Omega) - P(B) = 1 - P(B)
+$$
+\end{nota}
+
+\begin{nprop}
+Probabilidad de la unión.
+
+Sean $A, B \in \mathcal{A}$, entonces la probabilidad de la unión se halla mediante la siguiente fórmula
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+En particular, $P(A\cup B) \leq P(A) + P(B)$
+\end{nprop}
+
+\begin{proof}
+
+Consideramos los sucesos disjuntos $A$ y $B-A$ cuya unión es $A \cup B$ y aplicamos aditividad finita
+
+$$
+P(A \cup B) = P(A \cup (B-A)) = P(A) + P(B-A)
+$$
+
+Claramente $B-A = B - (A \cap B)$ con $A \cap B \subset B$ luego
+
+$$
+P(A \cup B) = P(A)  + P(B - (A \cap B)) = P(A) + P(B) - P(A \cap B)
+$$
+
+Donde se ha aplicado la probabilidad de la diferencia. 
+
+\end{proof}
+
+\begin{nprop}
+Principio de inclusión-exclusión para la unión finita de sucesos no disjuntos. Sean $A_1, A_2, \dots, A_n \in \mathcal{A}$, entonces
+
+\begin{equation*}
+\begin{aligned}
+P\left(\bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n P(A_i) - \sum_{i < j}^n P(A_i \cap A_j) + \sum_{i < j < k}^n P(A_i \cap A_j \cap A_k) + \dots \\
++ (-1)^{n-1} P\left(\bigcap_{i=1}^n A_i \right)
+\end{aligned}
+\end{equation*}
+
+\end{nprop}
+
+\begin{proof}
+
+Por inducción.
+
+- \emph{Caso base $n=1$:} Trivial
+
+$$
+P\left(\bigcup_{i=1}^1 A_i \right) = \sum_{i=1}^1 P(A_i) = P(A_1)
+$$
+
+- \emph{Caso $n=2$:}
+
+Es la fórmula de la probabilidad de la unión de dos sucesos demostrada anteriormente.
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+- \emph{Paso inductivo:} suponiendo que el resultado es cierto para $n$, lo demostramos para $n+1$.
+
+Considerando los sucesos disjuntos $\bigcup_{i=1}^n A_i$ y $(A_{n+1} - \bigcup_{i=1}^n A_i)$ cuya unión es $\bigcup_{i=1}^{n+1} A_i$ aplicamos aditividad finita
+
+\begin{equation*}
+\begin{aligned}
+P\left(\bigcup_{i=1}^{n+1} A_i \right) = P\left(\bigcup_{i=1}^n A_i \cup \left(A_{n+1} - \bigcup_{i=1}^n A_i\right) \right) = 
+P\left(\bigcup_{i=1}^n A_i \right) + P\left(A_{n+1} - \bigcup_{i=1}^n A_i \right)
+\end{aligned}
+\end{equation*}
+
+En general notamos que $P(A-B) = P(A - (A \cap B)) = P(A) - P(A\cap B)$ usando la probabilidad de la diferencia. Lo aplicamos al último sumando del mimebro derecho.
+
+\begin{equation*}
+\begin{aligned}
+P\left(\bigcup_{i=1}^{n+1} A_i \right) = 
+P\left(\bigcup_{i=1}^n A_i \right) + P\left(A_{n+1} - \bigcup_{i=1}^n A_i \right) = \\
+=  P\left(\bigcup_{i=1}^n A_i \right) + P\left(A_{n+1} \right) - P\left(\bigcup_{i=1}^n A_i \cap A_{n+1} \right)
+\end{aligned}
+\end{equation*}
+
+Aplicando la hipótesis de inducción al primer y tercer sumando del miembro de la derecha:
+
+\begin{equation*}
+\begin{aligned}
+P\left(\bigcup_{i=1}^{n+1} A_i \right) = 
+\sum_{i=1}^n P(A_i) - \sum_{i < j}^n P(A_i \cap A_j) + \dots  + (-1)^{n-1} P\left(\bigcap_{i=1}^n A_i \right) + P(A_{n+1}) +\\ 
+- \sum_{i=1}^n P(A_i \cap A_{n+1}) + \sum_{i < j}^n P(A_i \cap A_j \cap A_{n+1}) - \dots  + \\
++ (-1)^{n-1}\sum_{a_1 < a_2 < ... < a_{n - 1}}^n P\left(A_{a_1} \cap \dots \cap  A_{a_{n-1}} \cap A_{n+1}\right)
+\\ - (-1)^{n-1} P\left(\bigcap_{i=1}^n A_i \cap A_{n+1} \right) 
+\end{aligned}
+\end{equation*}
+
+Agrupamos los términos, sumando el $i$-ésimo con el $(n+i)$-ésimo.
+
+\emph{Primer término con el $(n+1)$-ésimo}
+
+$$ \sum_{i=1}^n P(A_i) + P(A_{n+1}) = \sum_{i=1}^{n+1} P(A_i) $$
+
+\emph{Segundo término con $(n+2)$-ésimo}
+
+$$-\sum_{i < j}^n P(A_i \cap A_j) - \sum_{i=1}^n P(A_i \cap A_{n+1}) = -\sum_{i < j}^{n+1} P(A_i \cap A_j)$$
+
+\emph{Tercer término con $(n+3)$-ésimo}
+
+$$\sum_{i < j < k}^n P(A_i \cap A_j \cap A_k) + \sum_{i < j}^n P(A_i \cap A_j \cap A_{n+1}) = \sum_{i < j < k} ^{n+1} P(A_i \cap A_j \cap A_k)$$
+
+$\dots$
+
+\emph{$n$-ésimo con $(2n)$-ésimo término}
+
+$$
+(-1)^{n-1}P\left(\bigcap_{i=1}^n A_i \right) + (-1)^{n-1}\sum_{a_1 < a_2 < ... < a_{n - 1}}^n P\left(A_{a_1} \cap \dots \cap  A_{a_{n-1}} \cap A_{n+1}\right) = \sum_{a_1 < a_2 < \dots a_n}^{n+1} P\left(\bigcap_{i=1}^n A_{a_i}\right)
+$$
+
+
+Finalmente, notamos que $-(-1)^{n-1} = (-1)^n$ y que $\bigcap_{i=1}^n A_i \cap A_{n+1} = \bigcap_{i=1}^{n+1} A_i$ en el último término luego
+
+$$
+P\left(\bigcup_{i=1}^{n+1} A_i \right) = \sum_{i=1}^{n+1} P(A_i) - \sum_{i < j}^{n+1} P(A_i \cap A_j) + \sum_{i < j < k}^{n+1} P(A_i \cap A_j \cap A_k) + \dots  + (-1)^nP\left(\bigcap_{i=1}^{n+1} A_i \right)
+$$
+
+\end{proof}
+
+\begin{nprop}
+     Subaditividad: 
+$$
+P\left(\bigcup_{n \in \mathbb{N}} A_n\right) \leq \sum_{n \in \mathbb{N}} P(A_n).
+$$
+\end{nprop}
+
+\begin{proof}
+Definimos una nueva familia de sucesos:
+
+\begin{equation*}
+\begin{aligned}
+B_1 = A_1 \\
+B_2 = A_2 - A_1 \\
+B_3 = A_3 - (A_1 \cup A_2) \\
+\dots \\
+B_n = A_n - \bigcup_{j=1}^{n-1} A_n
+\end{aligned}
+\end{equation*}
+
+Y observamos que son disjuntos dos a dos y que la unión de esta familia coincide con la de $A_n$:
+
+$$B_i \cap B_j = \emptyset$$
+$$\bigcup_{n \in \mathbb{N}} A_n = \bigcup_{n \in \mathbb{N}} B_n$$
+
+Luego aplicamos \emph{A3} a la unión:
+
+$$
+P\left(\bigcup_{n \in \mathbb{N}} A_i \right) = P\left(\bigcup_{n \in \mathbb{N}} B_i \right) = \sum_{n \in \mathbb{N}} P(B_i)
+$$
+
+Además, como $B_n \subset A_n \quad \forall n \in \mathbb{N}$, usamos la monotonía de la probabilidad $P(B_n) \leq P(A_n)$ y tenemos que 
+
+$$
+\sum_{i=1}^n P(B_i) \leq \sum_{i=1}^n P(A_i)
+$$
+
+Por tanto, eventualmente en el límite:
+
+$$
+\sum_{n \in \mathbb{N}} P(B_i) \leq \sum_{n \in \mathbb{N}} P(A_i)
+$$
+
+llegando al resultado
+
+$$
+P\left(\bigcup_{n \in \mathbb{N}} A_n\right) \leq \sum_{n \in \mathbb{N}} P(A_n).
+$$
+
+\end{proof}
+
+\begin{nprop}
+Desigualdad de Boole: 
+$$
+P\left(\bigcap_{n \in \mathbb{N}} A_n \right) \geq 1 - \sum_{n \in \mathbb{N}} P(A_n^c)
+$$
+\end{nprop}
+
+\begin{proof}
+
+Usamos que $\bigcap_{n \in \mathbb{N}} A_n = \left(\bigcup_{n \in \mathbb{N}} A_n^c \right)^c$ y la probabilidad del suceso complementario
+
+$$
+P\left( \bigcap_{n \in \mathbb{N}}A_n \right) = 
+P\left( \left(\bigcup_{n \in \mathbb{N}} A_n^c \right)^c \right) = 
+1 - P\left( \bigcup_{n \in \mathbb{N}}A_n^c \right)
+$$
+
+Finalmente, utilizando la propiedad de subaditividad
+
+$$
+  P\left(\bigcap_{n \in \mathbb{N}} A_n \right) \geq 1 - \sum_{n \in \mathbb{N}} P(A_n^c)
+$$
+  
+\end{proof}
+
+\end{document}
