@@ -1,3 +1,26 @@
-# Apuntes y ejercicios de matemáticas en Org-mode
+# Prove it!
 
-Distribuidos con [licencia GPLv3](LICENSE).
+Idea: Enunciar 1 resultado más importante de cada área de matematicas y escribir mis demostración favoritas.
+
+- [Álgeobra](#Álgebra)
+    - Anillos
+    - Grupos
+    - Cuerpos (T. Galois)
+    - Módulos
+- [Análisis](#Análisis)
+    - Real
+    - Vectorial
+    - Complejo
+    - Funcional
+- [Geometría](#Geometría)
+    - Álgebra Lineal
+    - Espacios Métricos
+    - Afín
+    - Diferencial
+- [Probabilidad y Estadística](#Probabilidad-y-Estadística)
+    - Descriptiva
+    - Probabilidad
+    - Inferencia
+- [Topología](#Topología)
+    - General
+    - Algebraica
