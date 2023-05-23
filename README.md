@@ -20,7 +20,7 @@ Idea: Enunciar 1 resultado más importante de cada área de matematicas y escrib
 - [Probabilidad y Estadística](#Probabilidad-y-Estadística)
     - Descriptiva
     - Probabilidad
-    - Inferencia
+    - Inferencia [WIP]
 - [Topología](#Topología)
     - General
-    - Algebraica
+    - Algebraica [WIP]
