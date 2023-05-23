@@ -2,7 +2,7 @@
 
 Idea: Enunciar 1 resultado más importante de cada área de matematicas y escribir mis demostración favoritas.
 
-- [Álgeobra](#Álgebra)
+- [Álgebra](#Álgebra)
     - Anillos
     - Grupos
     - Cuerpos (T. Galois)
