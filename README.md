@@ -13,10 +13,10 @@ Idea: Enunciar 1 resultado más importante de cada área de matematicas y escrib
     - Complejo
     - Funcional
 - [Geometría](#Geometría)
-    - Álgebra Lineal
+    - Espacio vectoriales
     - Espacios Métricos
-    - Afín
-    - Diferencial
+    - Espacios afines
+    - Curvas y Superficies
 - [Probabilidad y Estadística](#Probabilidad-y-Estadística)
     - Descriptiva
     - Probabilidad
