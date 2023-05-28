@@ -1,6 +1,6 @@
 # Prove it!
 
-Idea: Enunciar mi demostración favorita de cada área de las matemáticas (asociada a 1 asignatura del grado).
+Idea: Demostrar o enunciar mi resultado favorito de cada área de las matemáticas (asociada a 1 asignatura del grado).
 
 - [Álgebra](#Álgebra)
     - Anillos
