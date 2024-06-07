@@ -20,7 +20,7 @@ Idea: Demostrar o enunciar mi resultado favorito de cada área de las matemátic
 - [Probabilidad y Estadística](#Probabilidad-y-Estadística)
     - Descriptiva
     - Probabilidad
-    - Inferencia [WIP]
+    - Inferencia
 - [Topología](#Topología)
     - General
     - Algebraica [WIP]
