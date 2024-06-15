@@ -222,13 +222,17 @@ usando el **Corolario** del **Lema de Union de c.c.i**.
 Luego $U$ es el subconjunto $f$-inductivo maximal.
 
 Considerando su cota superior estricta $f(U)$ entonces $U' = U \cup \{f(U)\}$ está totalmente ordenado por estarlo $U$ y por ser $u \lt f(U)$ para todo $u \in U$. Además, 
+
 $$
 I_{U'}(f(U)) = I_{U\cup \{f(U)\}}(f(U)) = U
 $$
+
 luego
+
 $$
 f(I_{U'}(f(U))) = f(U)
 $$
+
 concluyendo que $U \cup \{f(U)\}$ es un conjunto $f$-inductivo que estaría necesariamente en el maximal obteniendo $f(U) \in U$ en contra de la def. $f(U)$ como cota superior estricta de $U$. $\square$
 
 > **Lema de Union de c.c.i** 
