@@ -205,14 +205,16 @@ Por tanto, $I = A$ o $I = B$, luego uno es cerrado inferiormente en el otro. $\s
 
 Aplicando el **Lema de comparación** a la colección de conjuntos $f$-inductivos llegamos a que es totalmente ordenada por la inclusión de conjuntos cerrados inferiormente.
 
-La unión $U$ de todos ellos es por el **Lema de Union de c.c.i** un conjunto bien ordenado. ($U \in Well(X)$)
+La unión $U$ de todos ellos es por el **Lema de Union de c.c.i** un conjunto bien ordenado. ( $U \in Well(X)$ )
 
 Además, sea 
+
 $$
 x \in U = \bigcup_{S \ f-ind} S
 $$
 
 entonces existe $S_x$ $f$-inductivo tal que $x \in S_x$ por lo que
+
 $$
 x = f(I_{S_x}(x)) = f(I_U(x))
 $$
